@@ -415,7 +415,7 @@ namespace LibGit2Sharp
             throw new ArgumentException("The collection of paths are of different lengths.");
         }
 
-        private void AddToIndex(string relativePath)
+        public void AddToIndex(string relativePath)
         {
             relativePath = PosixPathHelper.ToPosix(relativePath);
 
@@ -453,7 +453,7 @@ namespace LibGit2Sharp
             utf8Marshaler.CleanUpNativeData(indexEntry.Path);
         }
 
-        private void UpdatePhysicalIndex()
+        public void UpdatePhysicalIndex()
         {
             int res = NativeMethods.git_index_write(handle);
             Ensure.Success(res);
